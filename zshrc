@@ -8,8 +8,10 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="jreese"
 #ZSH_THEME="lukerandall"
-ZSH_THEME="michelebologna"
 #ZSH_THEME="risto"
+if [ "$ZSH_THEME" = "" ]; then
+  ZSH_THEME="michelebologna"
+fi
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,7 +57,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/wlz/.bin:/home/wlz/.usr/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -106,9 +107,12 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 setopt append_history no_inc_append_history no_share_history
 
-PROGPATH=$HOME/.usr
-
-export PATH=$PATH:$PROGPATH/bin:$HOME/android-studio/bin
+if [ "$PROGPATH" = "" ]; then
+  export PROGPATH=$HOME/.usr
+  export PATH=$PROGPATH/bin:$PATH
+fi
 
 stty -ixon
 export DISABLE_AUTO_TITLE="true"
+
+alias test_disc_speed='dd if=/dev/zero of=speedtest bs=64k count=3200 conv=fdatasync; dd if=speedtest of=/dev/null; rm -f speedtest'
