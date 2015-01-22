@@ -5,17 +5,16 @@ set nu
 
 set incsearch
 set hlsearch
+set background=dark
 
 set softtabstop=2
 set shiftwidth=2
 set tabstop=2
 set expandtab
-set smartindent
+set autoindent
 
-set background=dark
-
-set list
-set listchars=tab:▸\ ,trail:.
+"set list
+"set listchars=tab:▸\ ,trail:.
 
 " exec
 "   :PluginInstall 
@@ -23,7 +22,7 @@ set listchars=tab:▸\ ,trail:.
 "   $ vim +PluginInstall +qall
 " to install plugins
 set nocompatible              " be iMproved, required
-filetype off                  " required
+"filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
@@ -31,10 +30,10 @@ Plugin 'gmarik/Vundle.vim'
 "http://vim-scripts.org/vim/scripts.html
 
 Plugin 'The-NERD-tree'
-Plugin 'desert256.vim'
-Plugin 'rdark-terminal'
-Plugin 'zenburn'
-Plugin 'Atom'
+"Plugin 'desert256.vim'
+"Plugin 'rdark-terminal'
+"Plugin 'zenburn'
+"Plugin 'Atom'
 
 " Github
 Plugin 'etaoins/vim-volt-syntax'
@@ -43,26 +42,25 @@ Plugin 'JulesWang/css.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'gregsexton/MatchTag'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'guns/xterm-color-table.vim'
+"Plugin 'guns/xterm-color-table.vim'
 Plugin 'tomasr/molokai'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'itchyny/landscape.vim'
-Plugin 'xolox/vim-colorscheme-switcher'
-Plugin 'xolox/vim-misc'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'jonathanfilip/vim-lucius'
-Plugin 'sickill/vim-monokai'
-Plugin '29decibel/codeschool-vim-theme'
-Plugin 'sjl/badwolf'
-Plugin 'morhetz/gruvbox'
-Plugin 'jpo/vim-railscasts-theme'
+"Plugin 'itchyny/landscape.vim'
+"Plugin 'xolox/vim-colorscheme-switcher'
+"Plugin 'xolox/vim-misc'
+"Plugin 'w0ng/vim-hybrid'
+"Plugin 'jonathanfilip/vim-lucius'
+"Plugin 'sickill/vim-monokai'
+"Plugin '29decibel/codeschool-vim-theme'
+"Plugin 'sjl/badwolf'
+"Plugin 'morhetz/gruvbox'
+"Plugin 'jpo/vim-railscasts-theme'
 
 call vundle#end()            " required
-filetype plugin indent on    " required
-
+"filetype plugin off indent off    " required
 set t_Co=256
-set t_AB=[48;5;%dm
-set t_AF=[38;5;%dm
+"set t_AB=[48;5;%dm
+"set t_AF=[38;5;%dm
 colors jellybeans
 
 
