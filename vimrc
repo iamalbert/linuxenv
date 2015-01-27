@@ -13,8 +13,8 @@ set tabstop=2
 set expandtab
 set autoindent
 
-"set list
-"set listchars=tab:▸\ ,trail:.
+set list
+set listchars=tab:▸\ ,trail:.
 
 " exec
 "   :PluginInstall 
@@ -42,12 +42,16 @@ Plugin 'JulesWang/css.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'gregsexton/MatchTag'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-"Plugin 'guns/xterm-color-table.vim'
+Plugin 'guns/xterm-color-table.vim'
 Plugin 'tomasr/molokai'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'wesgibbs/vim-irblack'
+Plugin 'flazz/vim-colorschemes'
+
 "Plugin 'itchyny/landscape.vim'
-"Plugin 'xolox/vim-colorscheme-switcher'
-"Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'xolox/vim-misc'
 "Plugin 'w0ng/vim-hybrid'
 "Plugin 'jonathanfilip/vim-lucius'
 "Plugin 'sickill/vim-monokai'
@@ -61,22 +65,62 @@ call vundle#end()            " required
 set t_Co=256
 "set t_AB=[48;5;%dm
 "set t_AF=[38;5;%dm
-colors jellybeans
+colors jelleybeans
 
 
 map <F5> :NERDTree<CR>
 map <F6> :NERDTreeClose<CR>
 
-"map <F7> :LiveScriptCompile vert watch<CR>:wincmd l<CR>:set scrollbind<CR>:wincmd h<CR>:set scrollbind<CR>
-"map <F8> :LiveScriptCompile unwatch<CR>:q<CR>
+noremap  <F9> :source $HOME/.vimrc<CR>
+vnoremap <F9> <C-C>:source $HOME/.vimrc<CR>
+inoremap <F9> <C-O>:source $HOME/.vimrc<CR>
 
-map <F9> :source $HOME/.vimrc<CR>
+noremap  <C-S>         :update<CR>
+vnoremap <C-S>         <C-C>:update<CR>
+inoremap <C-S>         <C-O>:update<CR>
 
-noremap  <silent> <C-S>         :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
+noremap  <C-Z>         u<CR>
+vnoremap <C-Z>         <C-C>u<CR>
+inoremap <C-Z>         <C-O>u<CR>
 
-noremap  <silent> <C-Z>         u<CR>
-vnoremap <silent> <C-Z>         <C-C>u<CR>
-inoremap <silent> <C-Z>         <C-O>u<CR>
+autocmd FileType make set noexpandtab
 
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size  = 1
+map <F7> :PrevColorScheme <CR>
+
+noremap  <F10> :IndentGuidesToggle<CR>
+vnoremap <F10> <C-C>:IndentGuidesToggle<CR>
+inoremap <F10> <C-O>:IndentGuidesToggle<CR>
+
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  ctermbg=233
+hi IndentGuidesEven ctermbg=232
+
+
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+hi LineNr ctermbg=none
+
+map <UP> <NOP>
+map <DOWN> <NOP>
+map <LEFT> <NOP>
+map <RIGHT> <NOP>
+map <INSERT> <NOP>
+map <HOME> <NOP>
+map <END> <NOP>
+map <DEL> <NOP>
+map <PAGEUP> <NOP>
+map <PAGEDOWN> <NOP>
+
+imap <UP> <NOP>
+imap <DOWN> <NOP>
+imap <LEFT> <NOP>
+imap <RIGHT> <NOP>
+imap <INSERT> <NOP>
+imap <HOME> <NOP>
+imap <END> <NOP>
+imap <DEL> <NOP>
+imap <PAGEUP> <NOP>
+imap <PAGEDOWN> <NOP>
