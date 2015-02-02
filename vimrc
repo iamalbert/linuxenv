@@ -43,10 +43,7 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'gregsexton/MatchTag'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'guns/xterm-color-table.vim'
-Plugin 'tomasr/molokai'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'wesgibbs/vim-irblack'
 Plugin 'flazz/vim-colorschemes'
 
 "Plugin 'itchyny/landscape.vim'
@@ -77,7 +74,7 @@ inoremap <F9> <C-O>:source $HOME/.vimrc<CR>
 
 noremap  <C-S>         :update<CR>
 vnoremap <C-S>         <C-C>:update<CR>
-inoremap <C-S>         <C-O>:update<CR>
+inoremap <C-S>         <C-C>:update<CR>
 
 noremap  <C-Z>         u<CR>
 vnoremap <C-Z>         <C-C>u<CR>
@@ -110,7 +107,6 @@ map <RIGHT> <NOP>
 map <INSERT> <NOP>
 map <HOME> <NOP>
 map <END> <NOP>
-map <DEL> <NOP>
 map <PAGEUP> <NOP>
 map <PAGEDOWN> <NOP>
 
@@ -121,6 +117,5 @@ imap <RIGHT> <NOP>
 imap <INSERT> <NOP>
 imap <HOME> <NOP>
 imap <END> <NOP>
-imap <DEL> <NOP>
 imap <PAGEUP> <NOP>
 imap <PAGEDOWN> <NOP>
