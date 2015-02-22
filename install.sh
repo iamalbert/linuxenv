@@ -12,6 +12,5 @@ DOC
 )
 
 echo "$list" | while read src dst; do
-  mv $dst{,bak}
-  ln -s $DIR/$src $dst
+  ln --backup --suffix=bak --symbolic --verbose $DIR/$src $dst
 done
