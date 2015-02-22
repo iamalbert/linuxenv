@@ -5,7 +5,6 @@ set nu
 
 set incsearch
 set hlsearch
-set background=dark
 
 set softtabstop=2
 set shiftwidth=2
@@ -62,7 +61,8 @@ call vundle#end()            " required
 set t_Co=256
 "set t_AB=[48;5;%dm
 "set t_AF=[38;5;%dm
-colors jelleybeans
+colors jellybeans
+set background=light
 
 
 map <F5> :NERDTree<CR>
