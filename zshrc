@@ -96,21 +96,29 @@ alias 's-s'='sudo -s'
 alias v='vim'
 alias cls='clear'
 alias top='htop -u $USER'
-alias ptt='ssh bbsu@ptt.cc'
 alias more='less'
 alias freemem='echo 3 > /proc/sys/vm/drop_caches'
 alias tmux='tmux -2'
-alias ta='tmux attach-session'
+alias td='tmux detach-session'
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
+function ta() {
+  if [ $# -ne 0 ]; then
+    tmux attach -t $* || tmux new -s $*
+  else
+    tmux attach || tmux new
+  fi
+}
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 setopt append_history no_inc_append_history no_share_history
 
 if [ "$PROGPATH" = "" ]; then
   export PROGPATH=$HOME/.usr
-  export PATH=$PROGPATH/bin:$PATH
 fi
+export PATH=$PROGPATH/bin:$PROGPATH/share/bin:$PATH
+
+
 
 stty -ixon
 export DISABLE_AUTO_TITLE="true"
