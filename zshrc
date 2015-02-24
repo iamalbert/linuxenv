@@ -124,3 +124,8 @@ stty -ixon
 export DISABLE_AUTO_TITLE="true"
 
 alias test_disc_speed='dd if=/dev/zero of=speedtest bs=64k count=3200 conv=fdatasync; dd if=speedtest of=/dev/null; rm -f speedtest'
+
+if [ -f "$HOME/.zshrc.local" ]; then
+  source "$HOME/.zshrc.local"
+fi
+
