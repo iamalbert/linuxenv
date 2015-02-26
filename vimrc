@@ -12,6 +12,7 @@ set tabstop=2
 set expandtab
 set autoindent
 
+set encoding=utf-8
 set list
 set listchars=tab:▸\ ,trail:.
 
