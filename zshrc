@@ -104,9 +104,9 @@ alias ohmyzsh="mate ~/.oh-my-zsh"
 
 function ta() {
   if [ $# -ne 0 ]; then
-    tmux attach -t $* || tmux new -s $*
+    tmux -2 attach -t $* || tmux -2 new -s $*
   else
-    tmux attach || tmux new
+    tmux -2 attach || tmux -2 new
   fi
 }
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
@@ -124,3 +124,4 @@ stty -ixon
 export DISABLE_AUTO_TITLE="true"
 
 alias test_disc_speed='dd if=/dev/zero of=speedtest bs=64k count=3200 conv=fdatasync; dd if=speedtest of=/dev/null; rm -f speedtest'
+TERM=xterm-256color

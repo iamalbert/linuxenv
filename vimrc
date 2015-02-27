@@ -58,11 +58,10 @@ Plugin 'xolox/vim-misc'
 "Plugin 'jpo/vim-railscasts-theme'
 
 call vundle#end()            " required
-"filetype plugin off indent off    " required
+""filetype plugin off indent off    " required
 set t_Co=256
 "set t_AB=[48;5;%dm
 "set t_AF=[38;5;%dm
-colors jelleybeans
 
 
 map <F5> :NERDTree<CR>
@@ -119,3 +118,5 @@ imap <HOME> <NOP>
 imap <END> <NOP>
 imap <PAGEUP> <NOP>
 imap <PAGEDOWN> <NOP>
+
+colorscheme jelleybeans
