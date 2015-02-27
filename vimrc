@@ -5,7 +5,6 @@ set nu
 
 set incsearch
 set hlsearch
-set background=dark
 
 set softtabstop=2
 set shiftwidth=2
@@ -13,6 +12,7 @@ set tabstop=2
 set expandtab
 set autoindent
 
+set encoding=utf-8
 set list
 set listchars=tab:▸\ ,trail:.
 
@@ -119,4 +119,5 @@ imap <END> <NOP>
 imap <PAGEUP> <NOP>
 imap <PAGEDOWN> <NOP>
 
-colorscheme jelleybeans
+colors jellybeans
+set background=light
