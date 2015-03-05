@@ -5,7 +5,6 @@ set nu
 
 set incsearch
 set hlsearch
-set background=dark
 
 set softtabstop=2
 set shiftwidth=2
@@ -13,6 +12,7 @@ set tabstop=2
 set expandtab
 set autoindent
 
+set encoding=utf-8
 set list
 set listchars=tab:▸\ ,trail:.
 
@@ -58,11 +58,10 @@ Plugin 'xolox/vim-misc'
 "Plugin 'jpo/vim-railscasts-theme'
 
 call vundle#end()            " required
-"filetype plugin off indent off    " required
+""filetype plugin off indent off    " required
 set t_Co=256
 "set t_AB=[48;5;%dm
 "set t_AF=[38;5;%dm
-colors jelleybeans
 
 
 map <F5> :NERDTree<CR>
@@ -119,3 +118,6 @@ imap <HOME> <NOP>
 imap <END> <NOP>
 imap <PAGEUP> <NOP>
 imap <PAGEDOWN> <NOP>
+
+colors jellybeans
+set background=light
