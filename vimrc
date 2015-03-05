@@ -12,6 +12,7 @@ set tabstop=2
 set expandtab
 set autoindent
 
+set encoding=utf-8
 set list
 set listchars=tab:▸\ ,trail:.
 
@@ -57,7 +58,7 @@ Plugin 'xolox/vim-misc'
 "Plugin 'jpo/vim-railscasts-theme'
 
 call vundle#end()            " required
-"filetype plugin off indent off    " required
+""filetype plugin off indent off    " required
 set t_Co=256
 "set t_AB=[48;5;%dm
 "set t_AF=[38;5;%dm
