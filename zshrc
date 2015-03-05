@@ -130,3 +130,12 @@ if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
 
+function mssh(){
+  
+  for i in $@ ; do
+    echo $i
+    tmux splitw "ssh $i"
+    tmux select-layout tiled 
+  done 
+  tmux select-pane -t 1
+}
