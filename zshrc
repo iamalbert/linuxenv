@@ -1,3 +1,12 @@
+if [ "$PROGPATH" = "" ]; then
+  export PROGPATH=$HOME/.usr
+fi
+export OLDPATH=$PATH
+export PATH=$PROGPATH/bin:$PROGPATH/share/bin:$PATH
+export LD_LIBRARY_PATH=$PROGPATH/lib:$PROGPATH/libexec:$PROGPATH/lib64:$PROGPATH/local/cuda-6.5/lib64:$LD_LIBRARY_PATH
+export C_INCLUDE_PATH=$PROGPATH/include
+export CPLUS_INCLUDE_PATH=$PROGPATH/include
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -111,12 +120,12 @@ function ta() {
 }
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
+function port_forward(){
+  sh -c  "while true; do nc -v -l -p $2 -c ' nc localhost $1 '; done"
+}
+
 setopt append_history no_inc_append_history no_share_history
 
-if [ "$PROGPATH" = "" ]; then
-  export PROGPATH=$HOME/.usr
-fi
-export PATH=$PROGPATH/bin:$PROGPATH/share/bin:$PATH
 
 
 
