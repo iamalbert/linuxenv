@@ -80,6 +80,7 @@ vnoremap <C-Z>         <C-C>u<CR>
 inoremap <C-Z>         <C-O>u<CR>
 
 autocmd FileType make set noexpandtab
+autocmd BufEnter,BufNew *volt set filetype=volt
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
