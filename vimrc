@@ -96,6 +96,9 @@ hi IndentGuidesOdd  ctermbg=233
 hi IndentGuidesEven ctermbg=232
 
 
+colors jellybeans
+set background=light
+
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 hi LineNr ctermbg=none
@@ -120,5 +123,3 @@ imap <END> <NOP>
 imap <PAGEUP> <NOP>
 imap <PAGEDOWN> <NOP>
 
-colors jellybeans
-set background=light
