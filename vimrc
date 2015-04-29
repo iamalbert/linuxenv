@@ -85,6 +85,7 @@ inoremap <C-Z>         <C-O>u<CR>
 
 autocmd FileType make set noexpandtab
 autocmd FileType python set sw=4 sts=4 ts=4 
+autocmd BufEnter,BufNew *volt set filetype=volt
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
@@ -98,6 +99,9 @@ let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=233
 hi IndentGuidesEven ctermbg=232
 
+
+colors jellybeans
+set background=light
 
 hi Normal ctermbg=none
 hi NonText ctermbg=none
@@ -123,8 +127,6 @@ imap <END> <NOP>
 imap <PAGEUP> <NOP>
 imap <PAGEDOWN> <NOP>
 
-colors jellybeans
-set background=light
 
 set cursorline
 set rnu
