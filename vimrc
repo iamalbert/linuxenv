@@ -1,7 +1,6 @@
 syntax on
 
 
-set nu
 
 set incsearch
 set hlsearch
@@ -14,7 +13,7 @@ set autoindent
 
 set encoding=utf-8
 set list
-set listchars=tab:▸\ ,trail:.
+set listchars=tab:»\ ,trail:→
 
 " exec
 "   :PluginInstall 
@@ -47,7 +46,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'flazz/vim-colorschemes'
 
 "Plugin 'itchyny/landscape.vim'
-Plugin 'xolox/vim-colorscheme-switcher'
+"Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'xolox/vim-misc'
 "Plugin 'w0ng/vim-hybrid'
 "Plugin 'jonathanfilip/vim-lucius'
@@ -67,9 +66,14 @@ set t_Co=256
 map <F5> :NERDTree<CR>
 map <F6> :NERDTreeClose<CR>
 
-noremap  <F9> :source $HOME/.vimrc<CR>
-vnoremap <F9> <C-C>:source $HOME/.vimrc<CR>
-inoremap <F9> <C-O>:source $HOME/.vimrc<CR>
+map <F7> :make<CR>
+map <C-F7> :make clean all <CR>
+map <F8> :make clean %<<CR>
+
+
+noremap  <F9> :make %<<CR>
+
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 noremap  <C-S>         :update<CR>
 vnoremap <C-S>         <C-C>:update<CR>
@@ -80,11 +84,11 @@ vnoremap <C-Z>         <C-C>u<CR>
 inoremap <C-Z>         <C-O>u<CR>
 
 autocmd FileType make set noexpandtab
+autocmd FileType python set sw=4 sts=4 ts=4 
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size  = 1
-map <F7> :PrevColorScheme <CR>
 
 noremap  <F10> :IndentGuidesToggle<CR>
 vnoremap <F10> <C-C>:IndentGuidesToggle<CR>
@@ -121,3 +125,16 @@ imap <PAGEDOWN> <NOP>
 
 colors jellybeans
 set background=light
+
+set cursorline
+set rnu
+ino <C-C> <Esc>
+autocmd InsertEnter * :set nu
+autocmd InsertLeave * :set rnu
+
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
