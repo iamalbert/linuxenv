@@ -4,8 +4,8 @@ fi
 export OLDPATH=$PATH
 export PATH=$PROGPATH/bin:$PROGPATH/share/bin:$PATH
 export LD_LIBRARY_PATH=$PROGPATH/lib:$PROGPATH/libexec:$PROGPATH/lib64:$PROGPATH/local/cuda-6.5/lib64:$LD_LIBRARY_PATH
-export C_INCLUDE_PATH=$PROGPATH/include
-export CPLUS_INCLUDE_PATH=$PROGPATH/include
+export C_INCLUDE_PATH=$PROGPATH/include:$PROGPATH/include/python3.4m
+export CPLUS_INCLUDE_PATH=$C_INCLUDE_PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -110,6 +110,7 @@ alias freemem='echo 3 > /proc/sys/vm/drop_caches'
 alias tmux='tmux -2'
 alias td='tmux detach-session'
 alias ohmyzsh="mate ~/.oh-my-zsh"
+alias tl='tmux list-sessions'
 
 function ta() {
   if [ $# -ne 0 ]; then
@@ -118,6 +119,7 @@ function ta() {
     tmux -2 attach || tmux -2 new
   fi
 }
+
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 function port_forward(){
@@ -148,3 +150,5 @@ function mssh(){
   done 
   tmux select-pane -t 1
 }
+
+export GCC_COLORS="1"
