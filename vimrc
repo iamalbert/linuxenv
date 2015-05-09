@@ -44,6 +44,8 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'guns/xterm-color-table.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'davidhalter/jedi-vim'
+
 
 "Plugin 'itchyny/landscape.vim'
 "Plugin 'xolox/vim-colorscheme-switcher'
@@ -84,6 +86,7 @@ vnoremap <C-Z>         <C-C>u<CR>
 inoremap <C-Z>         <C-O>u<CR>
 
 autocmd FileType make set noexpandtab
+autocmd FileType c set cindent
 autocmd FileType python set sw=4 sts=4 ts=4 
 autocmd BufEnter,BufNew *volt set filetype=volt
 
@@ -98,10 +101,12 @@ inoremap <F10> <C-O>:IndentGuidesToggle<CR>
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=233
 hi IndentGuidesEven ctermbg=232
+.
+let g:jedi#popup_on_dot = 0
 
-
-colors jellybeans
 set background=light
+colors jellybeans
+"colors monokain
 
 hi Normal ctermbg=none
 hi NonText ctermbg=none

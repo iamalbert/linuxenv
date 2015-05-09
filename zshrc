@@ -108,7 +108,7 @@ alias top='htop -u $USER'
 alias more='less'
 alias freemem='echo 3 > /proc/sys/vm/drop_caches'
 alias tmux='tmux -2'
-alias td='tmux detach-session'
+alias td='tmux detach-client'
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tl='tmux list-sessions'
 
@@ -152,3 +152,6 @@ function mssh(){
 }
 
 export GCC_COLORS="1"
+export REPORTTIME=30
+
+function precmd() { print -Pn "\e]0;%n@%m: %~\a" }
