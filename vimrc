@@ -45,6 +45,7 @@ Plugin 'guns/xterm-color-table.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'brookhong/cscope.vim'
 
 
 "Plugin 'itchyny/landscape.vim'
@@ -97,6 +98,10 @@ let g:indent_guides_guide_size  = 1
 noremap  <F10> :IndentGuidesToggle<CR>
 vnoremap <F10> <C-C>:IndentGuidesToggle<CR>
 inoremap <F10> <C-O>:IndentGuidesToggle<CR>
+
+
+nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
 
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  ctermbg=233

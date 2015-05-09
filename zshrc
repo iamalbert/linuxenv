@@ -154,4 +154,34 @@ function mssh(){
 export GCC_COLORS="1"
 export REPORTTIME=30
 
-function precmd() { print -Pn "\e]0;%n@%m: %~\a" }
+function precmd() {
+  # set the title of terminal
+  print -Pn "\e]0;%n@%m: %~\a"
+
+  # Proceed only if we've ran a command in the current shell.
+  if ! [[ -z $CMD_START_DATE ]]; then
+      # Note current date in unix time
+      CMD_END_DATE=$(date +%s)
+      # Store the difference between the last command start date vs. current date.
+      CMD_ELAPSED_TIME=$(($CMD_END_DATE - $CMD_START_DATE))
+      # Store an arbitrary threshold, in seconds.
+      CMD_NOTIFY_THRESHOLD=$REPORTTIME
+
+      if [[ $CMD_ELAPSED_TIME -gt $CMD_NOTIFY_THRESHOLD ]]; then
+          # Beep or visual bell if the elapsed time (in seconds) is greater than threshold
+          print -n '\a'
+          # Send a notification
+          if type notify-send &> /dev/null; then
+            notify-send 'Job finished' "\"$CMD_NAME\" finished in $CMD_ELAPSED_TIME seconds."
+          fi
+      fi
+  fi
+  
+}
+
+function preexec () {
+    # Note the date when the command started, in unix time.
+    CMD_START_DATE=$(date +%s)
+    # Store the command that we're running.
+    CMD_NAME=$1
+}
