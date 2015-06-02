@@ -44,8 +44,9 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'guns/xterm-color-table.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'brookhong/cscope.vim'
+Plugin 'majutsushi/tagbar'
 
 
 "Plugin 'itchyny/landscape.vim'
@@ -66,13 +67,14 @@ set t_Co=256
 "set t_AF=[38;5;%dm
 
 
-map <F5> :NERDTree<CR>
-map <F6> :NERDTreeClose<CR>
-
+map <F5> :TagbarToggle<CR>
+map <F6> :NERDTreeToggle <CR>
 map <F7> :make<CR>
 map <C-F7> :make clean all <CR>
 map <F8> :make clean %<<CR>
 
+
+set nofoldenable
 
 noremap  <F9> :make %<<CR>
 
@@ -87,7 +89,8 @@ vnoremap <C-Z>         <C-C>u<CR>
 inoremap <C-Z>         <C-O>u<CR>
 
 autocmd FileType make set noexpandtab
-autocmd FileType c set cindent
+autocmd FileType c set cindent foldmethod=syntax 
+autocmd FileType cpp set cindent foldmethod=syntax
 autocmd FileType python set sw=4 sts=4 ts=4 
 autocmd BufEnter,BufNew *volt set filetype=volt
 
