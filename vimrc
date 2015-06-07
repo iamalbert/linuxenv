@@ -48,6 +48,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'brookhong/cscope.vim'
 Plugin 'majutsushi/tagbar'
 
+Plugin 'ehamberg/vim-cute-python'
 
 "Plugin 'itchyny/landscape.vim'
 "Plugin 'xolox/vim-colorscheme-switcher'
