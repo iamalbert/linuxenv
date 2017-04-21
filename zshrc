@@ -1,12 +1,3 @@
-if [ "$PROGPATH" = "" ]; then
-  export PROGPATH=$HOME/.usr
-fi
-export OLDPATH=$PATH
-export PATH=$PROGPATH/bin:$PROGPATH/share/bin:$PATH
-export LD_LIBRARY_PATH=$PROGPATH/lib:$PROGPATH/libexec:$PROGPATH/lib64:$PROGPATH/local/cuda-6.5/lib64:$LD_LIBRARY_PATH
-export C_INCLUDE_PATH=$PROGPATH/include:$PROGPATH/include/python3.4m
-export CPLUS_INCLUDE_PATH=$C_INCLUDE_PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -19,8 +10,15 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="lukerandall"
 #ZSH_THEME="risto"
 if [ "$ZSH_THEME" = "" ]; then
-  export ZSH_THEME="michelebologna"
+  export ZSH_THEME="gentoo"
 fi
+export ZSH_THEME="gentoo"
+#export ZSH_THEME="mrtazz"
+#export ZSH_THEME="michelebologna"
+#export ZSH_THEME="sorin"
+#export ZSH_THEME="mh"
+#export ZSH_THEME="terminalparty"
+export ZSH_THEME="gitster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -60,7 +58,7 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git extract laravel5)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -69,7 +67,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -101,16 +99,19 @@ alias cp='cp -vi'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias e='exit'
-alias 's-s'='sudo -s'
+alias 's-s'='sudo su'
 alias v='vim'
 alias cls='clear'
 alias top='htop -u $USER'
 alias more='less'
 alias freemem='echo 3 > /proc/sys/vm/drop_caches'
 alias tmux='tmux -2'
-alias td='tmux detach-client'
 alias ohmyzsh="mate ~/.oh-my-zsh"
+alias td='tmux detach-client'
 alias tl='tmux list-sessions'
+alias  tda='td && ta'
+alias git-delete-lock='rm -f .git/index.lock'
+alias sus='sudo su'
 
 function ta() {
   if [ $# -ne 0 ]; then
@@ -134,12 +135,18 @@ setopt append_history no_inc_append_history no_share_history
 stty -ixon
 export DISABLE_AUTO_TITLE="true"
 
-alias test_disc_speed='dd if=/dev/zero of=speedtest bs=64k count=3200 conv=fdatasync; dd if=speedtest of=/dev/null; rm -f speedtest'
+function test_disc_speed() {
+    s=${1:-1600}
+    dd if=/dev/zero of=speedtest bs=64k count="$s" conv=fdatasync; 
+    dd if=speedtest of=/dev/null; 
+    rm -f speedtest
+}
 TERM=xterm-256color
 
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
+
 
 function mssh(){
   
@@ -185,3 +192,5 @@ function preexec () {
     # Store the command that we're running.
     CMD_NAME=$1
 }
+
+
